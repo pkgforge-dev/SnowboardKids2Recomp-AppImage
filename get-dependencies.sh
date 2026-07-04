@@ -28,7 +28,7 @@ case "$ARCH" in # they use X64 and ARM64 for the zip links
 	aarch64) zip_arch=Linux-ARM64;;
 esac
 ZIP_LINK=$(wget -qO- https://api.github.com/repos/cdlewis/snowboardkids2-recomp/releases \
-      | sed 's/[()",{} ]/\n/g' | grep -o -m 1 "https.*SnowboardKids2Recompiled.*$zip_arch-Release.tar.gz")
+      | sed 's/[()",{} ]/\n/g' | grep -o -m 1 "https.*SnowboardKids2Recompiled.*${zip_arch}-Release.tar.gz")
 echo "$ZIP_LINK" | awk -F'/' '{gsub(/^v/, "", $(NF-1)); print $(NF-1); exit}' > ~/version
 wget --retry-connrefused --tries=30 "$ZIP_LINK" -O /tmp/app.tar.gz
 
