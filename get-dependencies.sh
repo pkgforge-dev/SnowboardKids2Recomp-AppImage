@@ -9,7 +9,7 @@ echo "---------------------------------------------------------------"
 pacman -Syu --noconfirm \
 	pipewire-audio \
 	pipewire-jack  \
-	sdl2	 	   \
+	sdl2-compat    \
 	vulkan-headers
 
 echo "Installing debloated packages..."
